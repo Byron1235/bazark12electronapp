@@ -1,0 +1,57 @@
+{
+  "name": "bazar-k12",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "set NODE_ENV=development && concurrently \"npm run ng:serve\" \"npm run electron:dev\"",
+    "ng:serve": "cd angular && ng serve --port 4200 --host 0.0.0.0",
+    "ng:build": "cd angular && ng build",
+    "electron:dev": "wait-on http://localhost:4200 && electron .",
+    "electron:build": "set NODE_ENV=production && npm run ng:build && electron-builder"
+  },
+  "build": {
+    "appId": "cl.bazark12.app",
+    "productName": "Bazar K-12",
+    "asar": false,
+    "files": [
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "bazar.db",
+        "to": "bazar.db"
+      },
+      {
+        "from": "angular/dist/angular",
+        "to": "angular",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "wait-on": "^7.0.1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.5.0",
+    "electron-prompt": "^1.7.0",
+    "electron-serve": "^3.0.0",
+    "electron-updater": "^6.6.2"
+  },
+  "publish": [
+    {
+      "provider": "github",
+      "owner": "Byron1235",
+      "repo": "bazark12",
+      "private": false
+    }
+  ]
+}
