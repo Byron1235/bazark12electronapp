@@ -12,27 +12,35 @@
   "build": {
     "appId": "cl.bazark12.app",
     "productName": "Bazar K-12",
-    "asar": false,
-    "files": [
-      "electron/**/*",
-      "package.json"
-    ],
-    "extraResources": [
+    "publish": [
       {
-        "from": "bazar.db",
-        "to": "bazar.db"
-      },
-      {
-        "from": "angular/dist/angular",
-        "to": "angular",
-        "filter": [
-          "**/*"
-        ]
+        "provider": "github",
+        "owner": "Byron1235",
+        "repo": "bazark12electronapp",
+        "private": false
       }
-    ],
-    "win": {
-      "target": "nsis"
+    ]
+  },
+  "asar": false,
+  "files": [
+    "electron/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "bazar.db",
+      "to": "bazar.db"
+    },
+    {
+      "from": "angular/dist/angular",
+      "to": "angular",
+      "filter": [
+        "**/*"
+      ]
     }
+  ],
+  "win": {
+    "target": "nsis"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
@@ -45,13 +53,5 @@
     "electron-prompt": "^1.7.0",
     "electron-serve": "^3.0.0",
     "electron-updater": "^6.6.2"
-  },
-  "publish": [
-    {
-      "provider": "github",
-      "owner": "Byron1235",
-      "repo": "bazark12electronapp",
-      "private": false
-    }
-  ]
+  }
 }
