@@ -1,6 +1,6 @@
 {
   "name": "bazar-k12",
-  "version": "1.0.0",
+  "version": "1.0.1b",
   "main": "electron/main.js",
   "scripts": {
     "start": "set NODE_ENV=development && concurrently \"npm run ng:serve\" \"npm run electron:dev\"",
