@@ -59,8 +59,7 @@ function createWindow() {
         log('Loading URL: http://localhost:4200');
     } else {
         autoUpdater.checkForUpdatesAndNotify();
-        const indexPath = path.join(process.resourcesPath, 'angular', 'browser', 'index.html');
-        log('Loading file: ' + indexPath);
+        const indexPath = path.join(process.resourcesPath, 'app', 'angular', 'dist', 'angular', 'browser', 'index.html'); log('Loading file: ' + indexPath);
         win.loadFile(indexPath);
     }
 }

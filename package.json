@@ -12,6 +12,7 @@
   "build": {
     "appId": "cl.bazark12.app",
     "productName": "Bazar K-12",
+    "asar": false,
     "publish": [
       {
         "provider": "github",
@@ -21,7 +22,6 @@
       }
     ]
   },
-  "asar": false,
   "files": [
     "electron/**/*",
     "package.json"
