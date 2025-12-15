@@ -123,7 +123,7 @@ app.whenReady().then(() => {
 
         // Base de datos
         const userDbPath = path.join(app.getPath('userData'), 'bazar.db');
-        const bundledDbPath = path.join(process.resourcesPath, 'bazar.db');
+        const bundledDbPath = path.join(process.resourcesPath, 'app', 'bazar.db');
 
         if (!fs.existsSync(userDbPath) && fs.existsSync(bundledDbPath)) {
             fs.copyFileSync(bundledDbPath, userDbPath);
